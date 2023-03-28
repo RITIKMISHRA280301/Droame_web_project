@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/homepage.css">
+    <link rel="stylesheet" href="/static/homepage_footer.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/DroameLogo.png"/>
+
+</head>
+<body>
+    
+<div class="topnav" id="myTopnav">
+  <a href="/">DROAME.COM</a>
+    <a href="/">Home</a>
+    <a href="/dashbord">BOOKING</a>
+    {% if  user.is_authenticated %}
+    <a href="/customer">Customers </a>
+    {% endif %}
+<a href="#">Service</a>
+<a href="#">About</a>
+{% if  user.is_authenticated %}
+  {% if user.is_superuser %}
+    <a href="/admin">admin</a>
+    {% else %}
+    {% endif %}
+    
+    
+    {% else %}
+    
+        <a href="\login_user">Login</a>
+     
+  {% endif %}
+<a href="javascript:void(0);" style="font-size:20px;font-weight:bolder;" class="icon" onclick="myFunction()">&#9776;</a></div>
+
+<script>
+function myFunction() {
+var x = document.getElementById("myTopnav");
+if (x.className === "topnav") {
+x.className += " responsive";
+} else {
+x.className = "topnav";
+}
+}
+</script>
+        {% block content %}
+        {% endblock %}
+        <div class="footer">
+          <div class="footer1">
+            <div class="footer_col1">
+            <div class="footer_col">
+              <img src="/static/images/DroameLogo.png" class="footer_img"><br><br><br><br><br><br>
+              <p class="p1">We build software and hardware to enable fully autonomous operation of all kinds of aerial vehicles. We provide aerial videography with high resolution and instant video delivery.</p>
+            </div>
+            <div class="footer_col">
+              <img src="https://img.icons8.com/ios/22/000000/place-marker--v1.png"/>
+              <a  href="#">Hanuman Nagar Extension
+                Jaipur, Rajasthan</a><br><br><br>
+              <img src="https://img.icons8.com/ios/22/000000/mail.png"/><a href="mailto:droamee@gmail.com">droamee@gmail.com</a><br><br><br>
+        <img src="https://img.icons8.com/ios/22/000000/phone-disconnected.png"/>
+        <a href="tel:+91 89557 89404"> +91 89557 89404</a>
+            </div>
+            <div class="footer_col">
+              <a href="#"><img src="https://img.icons8.com/material-outlined/22/000000/about.png"/> About-us</a>
+              <br><br>
+              <a href="#"><img src="https://img.icons8.com/ios/22/000000/duplicate-contacts.png"/> Contact-us</a>
+              <br><br>
+        
+              <a href="#"><img src="https://img.icons8.com/ios/22/000000/document--v1.png"/> Privacy-policy</a>
+              <br><br>
+              <a href="#"><img src="https://img.icons8.com/ios/22/000000/document--v1.png"/>Service </a>
+              <br><br>
+              <a href="#"><img src="https://img.icons8.com/ios/22/000000/terms-and-conditions.png"/> Terms & Conditions</a>
+            </div>
+          </div>
+          </div>
+            <div class="footer2">
+              <table class="table2">
+                <th><a href="#"><img src="https://img.icons8.com/ios/40/000000/facebook-new.png"/></a></th>
+                <th><a href="#"><img src="https://img.icons8.com/ios/40/000000/instagram-new--v1.png"/></a></th>
+                <th><a href="#"><img src="https://img.icons8.com/ios/40/000000/linkedin.png"/></a></th>
+                <th><a href="#"><img src="https://img.icons8.com/ios/40/000000/gmail.png"/></a></th>
+              </table>
+            </div>
+        <div class="footer3">
+          <table class="table3">
+            <th><img src="https://img.icons8.com/officel/18/000000/copyright.png"/></th>
+            <th> 2023-<b id="timeyear"></b> Copyrigth droame.com</th>
+          </table>
+          <p class="table3_"><img src="https://img.icons8.com/officel/15/000000/copyright.png"/> 2023-<b id="timeyear1"></b> Copyrigth droame.com</p>
+        </div>
+        </div>
+ <script>
+          const d = new Date();
+          document.getElementById("timeyear").innerHTML = d.getFullYear();
+          document.getElementById("timeyear1").innerHTML = d.getFullYear();
+    </script>       
+</body>
+</html>

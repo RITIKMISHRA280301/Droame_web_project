@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customer</title>
+    <link rel="stylesheet" href="\static\dashbord.css" >
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/DroameLogo.png"/>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <div class="list"> 
+		<br>
+		<div class="list_area">
+<div class="row">
+  <div class="left">
+    <p class="i2">Customer Details</b>
+      </p>
+<hr>
+<table class="list_table1">
+<tr>
+<th>Colum</th>
+<th>Details</th>
+ </tr> 
+</table>
+<table class="list_table">
+    <tr>
+        <td>Customer Id </td>
+        <td>{{customer.id}}</td>   
+      </tr>
+  <tr>
+    <td>Customer Name </td>
+    <td>{{customer.customer_name}}</td>   
+  </tr>
+  <tr>
+    <td>Customer Email </td>
+    <td>{{customer.email}}</td>   
+  </tr>
+  <tr>
+    <td>Customer mobile </td>
+    <td>{{customer.phone_number}}</td>   
+  </tr>
+  <tr>
+    <td>Customer address </td>
+    <td>{{customer.address}}</td>   
+  </tr>
+
+</table>
+<br><br>
+{%  for booking in all_booking %}
+Booking No : {{forloop.counter}}
+<table class="list_table">
+    <tr>
+        <td>Booking Id </td>
+        <td>{{booking.id}}</td>   
+      </tr>
+      <tr>
+        <td>Booking Date </td>
+        <td>{{booking.booking_date}}</td>   
+      </tr>
+      <tr>
+        <td>Shoot Location</td>
+        <td>{{booking.location_id}}</td>   
+      </tr>
+      <tr>
+        <td>Shoot Type</td>
+        <td>{{booking.drone_shot_id}}</td>   
+      </tr>
+      <tr>
+        <td>Order Date & Time </td>
+        <td>{{booking.create_deta}}</td>   
+      </tr>
+</table>
+<br><br>
+{% endfor %}
+</div>
+  </div>
+
+</div>
+<br>
+</div>
+
+
+    {% endblock %}
+</body>
+</html>

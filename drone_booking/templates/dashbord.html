@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking List</title>
+    <link rel="stylesheet" href="\static\dashbord.css" >
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/DroameLogo.png"/>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+{% for message in messages %}
+{% if message.tags == 'success' %}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            {{message}}
+          </div>
+{% else %}
+    <div class="alert" style="background-color:red;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        {{message}}
+      </div>
+{% endif %}
+{% endfor %}
+    <div class="list"> 
+		<br>
+		<div class="list_area">
+<div class="row">
+  <div class="left">
+    <p class="i2">Drone Booking Data Table</b>
+      </p>
+<hr>
+<a href="/book_drone"><button class="createbtn">+New Booking</button></a> <a href="/customer"><button class="createbtn">Customers</button></a>
+<br><br>
+<input class="fa-fa-search"  type="search" id="mySearch" onkeyup="mySearchFunction()" placeholder="Type booking id/shoot type....." title="Type name" >
+<table class="list_table1">
+<tr>
+    <th style="width:5%;">Id</th>
+    <th>Shoot Type</th>
+    <th>Booking Date</th>
+    <th>Edit/Delete</th>
+ </tr> 
+</table>
+<table id="myMenu" class="list_table">
+  {% for i in booking %}
+  <tr>
+    <td style="width:5%;"><a class="a_q" href="/booking_details/{{i.id}}">{{i.id}}</a>
+    </td>
+    
+    <td><a class="a_q" href="/booking_details/{{i.id}}">{{i.drone_shot_id}}</a></td>
+   
+    <td>{{i.booking_date}}</td>
+    <td>
+      <a href="/edit_drone_booking/{{i.id}}"><img src="https://img.icons8.com/pastel-glyph/25/000000/edit--v1.png"/>Edit</a>
+      
+      <a href="/delete_drone_booking/{{i.id}}"><img src="https://img.icons8.com/fluency-systems-filled/20/000000/filled-trash.png"/>Delete</a></td>
+    
+    
+  </tr>
+  {% endfor %} 
+</table>
+
+</div>
+  </div>
+
+</div>
+<br>
+</div>
+
+<script>
+  function mySearchFunction() {
+    var input, filter, table,tr,a, i;
+    input = document.getElementById("mySearch");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myMenu");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      a = tr[i].getElementsByTagName("a")[0];
+      a1 = tr[i].getElementsByTagName("a")[1];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      }
+      else if(a1.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      }
+  
+      else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+  </script>
+    {% endblock %}
+</body>
+</html>

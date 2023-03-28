@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit customer</title>
+    <link rel="stylesheet" href="/static/add_customer.css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/DroameLogo.png"/>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+	<a href="/customer"><button class="button_" style="padding:5px;width:100px;vertical-align:middle;float:left;"><span>Back</span></button></a>
+	<br><br><br>
+{% for message in messages %}
+{% if message.tags == 'success' %}
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        {{message}}
+      </div>
+{% else %}
+<div class="alert" style="background-color:red;">
+	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+	{{message}}
+  </div>
+{% endif %}
+{% endfor %}
+    <div class="customer_area">
+        <h1 style="text-align:center;">Edit Customers Details</h1>
+		<p># Edit customer's details for drone booking</p>
+		<div class="customer">
+			<form class="form" method="POST" action="/edit_customers_deatils/{{customer.id}}" enctype="multipart/form-data">
+                {% csrf_token %}
+		
+				<label for='customer_name'>Customer Name :</label>
+				<input type="text" id="customer_name" value="{{customer.customer_name}}" name="customer_name" placeholder="Enter the customer name">
+				
+
+				<label for='email'>Email:</label>
+				<input type="email" id="email" value="{{customer.email}}" name="email" placeholder="Enter the customer's email" >
+			
+
+				<label for='phone_number'>Mobile :</label>
+				<input type="text" id="phone_number" value="{{customer.phone_number}}" name="phone_number" placeholder="Enter the mobile no" >
+				
+
+				<label for='address'>Address :</label>
+				<input type="text" id="address" value="{{customer.address}}" name="address" placeholder="Enter the customer's address" >
+
+			<button type="reset" class="button_" style="vertical-align:middle;float:left;"><span>Cannel</span></button>
+			<button type="submit" class="button_" style="vertical-align:middle"><span>Save</span></button>
+			</form>
+		</div>
+	</div>
+    
+<br><br>
+{% endblock %}
+</body>
+</html>

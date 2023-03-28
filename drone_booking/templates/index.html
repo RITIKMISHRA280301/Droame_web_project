@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droame</title>
+    <link rel="stylesheet" href="/static/homepage_mid.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/DroameLogo.png"/>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="background">
+		<p class="text1"><br><br><br><br>
+			<br><br><br><br><br><br>Hello World!</p>
+		<p class="text3"><i class="i1">Take your Memories to the sky!</p>
+		<p class="text2">Book a drone that autonomously flies to you and captures <br>stunning aerial shots for you!.</p>
+		<a href="https://play.google.com/store/apps/details?id=com.droame.customer.app&pli=1"><img style="background-color:none;width:10%;" class="link" src="/static/images/googleplay.png"/></a>
+</div>
+
+ 
+<div class="background2">
+	<img class="background2_img" src="/static/images/mobile.png">
+
+		<div class="text4">
+			<p class="text5"><br><br></p>
+            <p class="text5"><br></p>
+			<p class="text3"><i class="i1">One App for all your Special Memories
+            </p>
+			<p class="text2">
+                Revisit your favourite moments in life, the way you lived them!
+                
+                
+			</p>
+		
+		</div>
+
+</div>
+
+
+
+<div class="background3">
+	<img class="background3_img" src="/static/images/worldMap.gif">
+	<p class="text1"><br><br><br><br><br><br>Hello World!</p>
+
+		<p class="text3"><i class="i1">Want us on your location? Contact us, we will be right there!
+            </p>
+		<p class="text2">Our expert onboarding team is there to cater to your custom requirements</p>
+</div>
+
+<div class="institute">
+	<img  src="/static/images/mobile1.jpeg" class="photo">
+
+	<div class="text4"><br><br><br><br><br>
+
+		<p class="text3" style="text-align:right;margin-right:5%;"><i class="i1">How it works ? </p>
+            <br>
+		<p class="text2" style="text-align:right;margin-right:5%;">
+            Download Our App<br><br>
+            Visit your favourite location<br><br>
+            Select the Location<br><br>
+            Choose your shot from a variety of awesome shots<br><br>
+            Watch your drone fly to you!</p>
+		</div>
+
+</div>
+<div class="background7">
+    <img src="/static/images/DroameLogo.png" class="form_img">
+<div class="form">
+    <form method="post" action="#">
+        {% csrf_token %}
+      <p class="text9">CONTACT US</p>
+      {% for message in messages %}
+      <li{% if message.tags %} style="color: red;" class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+      
+      <input type="text" name="name" placeholder="write your name" required>
+      
+      <input type="email" name="Email_id" placeholder="write your email id" required>
+
+      <textarea name="Massage" placeholder="write your message" required></textarea>
+      <input class="sendbutton" type="submit" name="Send">
+      </form>
+</div>
+</div>
+
+
+
+    {% endblock %}
+</body>
+</html>

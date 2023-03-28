@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/homepage_mid.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/DroameLogo.png"/>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="background7" style="background-color:white;">
+        <img src="/static/images/DroameLogo.png" style="margin-top:-50px;" class="form_img">
+    <div class="form">
+        <form method="post" action="/login_user">
+            {% csrf_token %}
+          <p class="text9">Login Now!</p>
+          {% for message in messages %}
+          <li{% if message.tags %} style="color: red;" class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+          
+          <input type="text" name="username" placeholder="write your user name" required>
+          <input type="password" name="password" placeholder="write your password" required>
+          <input class="sendbutton" type="submit" value="Login">
+          </form>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Drone Booking</title>
+    <link rel="stylesheet" href="/static/add_customer.css">
+<link rel="shortcut icon" type="image/x-icon" href="/static/images/DroameLogo.png"/>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+	<a href="/dashbord"><button class="button_" style="padding:5px;width:100px;vertical-align:middle;float:left;"><span>Back</span></button></a>
+	<br><br><br>
+{% for message in messages %}
+{% if message.tags == 'success' %}
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        {{message}}
+      </div>
+{% else %}
+<div class="alert" style="background-color:red;">
+	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+	{{message}}
+  </div>
+{% endif %}
+{% endfor %}
+    <div class="customer_area">
+        <h1 style="text-align:center;">Edit Drone Booking Details</h1>
+		<p># Fill details for drone booking</p>
+		<div class="customer">
+			<form class="form" method="POST" action="/edit_drone_booking/{{booking.id}}" enctype="multipart/form-data">
+                {% csrf_token %}
+		
+				<label for='customer_name'>Customer Id/Email :</label>
+                <select type="text" id="customer_name" name="customer_id" required>
+                    {% for i in customer %}
+                    {% if i.id == booking.id %}
+                    <option value="{{booking.id}}" selected>{{booking.id}}/{{i.email}}</option>
+                    {% else %}
+                    <option value="{{i.id}}">{{i.id}} / {{i.email}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+				
+                <br>
+				<label for='location_id'>Shoot Location:</label>
+				<input type="text" id="location_id" value="{{booking.location_id}}" name="location_id" placeholder="Enter the shoot location " required>
+			
+
+				<label for='drone_shot_id'>Drone Shoot Type:</label>
+				<input type="text" id="drone_shot_id" value="{{booking.drone_shot_id}}" name="drone_shot_id" placeholder="Enter the drone shot id(type)" required>
+				
+
+				<label for='booking_date'>Booking Date :</label>  <label>Last Booking Date : {{booking.booking_date}} </label>
+				<input type="date" id="booking_date" value="{{booking.booking_date}}" name="booking_date" required>
+
+			<button type="reset" onclick="clear_image()" class="button_" style="vertical-align:middle;float:left;"><span>Cannel</span></button>
+			<button type="submit" class="button_" style="vertical-align:middle"><span>Save</span></button>
+			</form>
+		</div>
+	</div>
+    
+<br><br>
+{% endblock %}
+</body>
+</html>
