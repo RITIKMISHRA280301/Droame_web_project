@@ -1,0 +1,166 @@
+*{margin-left: 0;
+    margin-top: 0;
+    margin-top: 0;}
+.list{width: 100%;
+    background-color: #ddd;
+    color: black;
+    overflow: hidden;
+    font-size: 20px;
+    font-family:calibri;}
+@media(max-width: 800px){.list{font-size: 17px;}}
+.list_area{width:90%;
+    margin: auto;
+    overflow: auto;
+    padding: 10px;}
+@media(max-width: 800px){.list_area{width: 95%;
+    padding:2px;}}
+
+.row {
+display:flex;
+}
+
+
+.left {
+flex: 35%;
+padding: 15px 0;
+
+}
+
+.left h2 {
+padding-left: 8px;
+}
+
+
+#mySearch {
+width:50%;
+font-size: 18px;
+padding:10px; 
+border:none;
+border-bottom:2px solid black;
+
+}
+#mySearch:focus{width:90%;}
+
+#myMenu {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+
+input[type=password],[type=search],[type=text],[type=number]{
+width:50%;
+margin: 0 0 20px 10px;
+display: inline-block;
+border:none;
+border-bottom:2px solid black;
+background: #f1f1f1;
+font-size:18px;
+background-color: white;
+background-image: url('https://img.icons8.com/color/28/000000/search--v1.png');
+background-position: 10px 8px; 
+background-repeat: no-repeat;
+padding: 12px 20px 12px 40px;
+
+}
+
+input[type=text]:focus,[type=search]:focus,[type=number]:focus{
+width: 100%;
+background-color:white;
+outline: none;
+font-size:18px;
+border:none;
+border-bottom:2px solid black;
+color: red;
+background-image: none;
+
+}
+::placeholder{color: red;
+padding:30px;
+font-family:calibri;
+letter-spacing:1px;}
+
+.i{font-size:50px;}
+@media(max-width:800px){.i{font-size:25px;}}
+hr{border:2px solid black;}
+.list_table{width: 100%;
+border:1px solid black;}
+.list_table td{width:25%;
+border:1px solid black;
+padding: 10px;}
+
+.list_table1{width: 100%;
+background-color:#ddd;
+border-bottom:5px solid #a86632;}
+.list_table1 th{width:25%;
+background-color: black;
+color: white;
+padding:12px;
+}
+
+.list_table td:hover{background-color: white;}
+.list_table a{color: black;
+text-decoration: none;
+padding: 0 10px 0 10px;}
+@media(max-width:1000px){.list_table a{display:block;
+  padding: 0 15px 0 15px;}}
+@media(max-width:800px){.list_table a{display:block;
+  padding: 10px 20px 0 20px;}}
+.list_table a:hover{color: red;
+text-decoration: underline;}
+.createbtn{font-size:22px;
+float: right;
+margin:10px;
+cursor: pointer;
+font-family:calibri;
+border-radius: 5px;
+letter-spacing: 1px;}
+@media(max-width:800px){.createbtn{font-size:18px;}}
+.createbtn:hover{color:blue;
+text-decoration: none;}
+.i2{font-weight: 100;
+    font-size:30px;
+  text-transform: uppercase;}
+@media(max-width: 1000px){.i2{font-weight: 100;
+    font-size:28px;
+  }}
+@media(max-width:800px){.i2{font-weight: 100;
+    font-size:22px;}}
+  
+  
+.e1{font-size:50px;
+  text-transform: uppercase;}
+@media(max-width: 1000px){.e1{
+    font-size:40px;
+  }}
+@media(max-width:800px){.e1{
+    font-size:30px;}}
+
+.alert {
+	width:70%;
+	margin-left:2%;
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+  position: fixed;
+  font-family:calibri;
+  font-size:20px;
+}
+@media(max-width:800px){.alert{width:75%;
+margin-left:1%;
+padding:5px;
+font-size:18px;}}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
